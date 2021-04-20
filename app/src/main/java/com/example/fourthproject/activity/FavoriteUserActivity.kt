@@ -62,7 +62,7 @@ class FavoriteUserActivity : AppCompatActivity() {
 
     private fun showSelectedUser(favoriteUser: GithubUserData) {
         val moveIntent = Intent(this@FavoriteUserActivity, DetailActivity::class.java)
-        moveIntent.putExtra(DetailActivity.EXTRA_FAVORITE_USER, favoriteUser)
+        moveIntent.putExtra(DetailActivity.EXTRA_USER, favoriteUser)
         startActivity(moveIntent)
     }
 

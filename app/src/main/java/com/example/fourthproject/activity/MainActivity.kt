@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             MainViewModel::class.java)
 
         val actionbar = supportActionBar
-        actionbar?.title = "Home"
+        actionbar?.title = "GithubUserAPP 3.0"
         binding.rvUsers.setHasFixedSize(true)
         getDataUserApiInitial()
         showRecyclerList()

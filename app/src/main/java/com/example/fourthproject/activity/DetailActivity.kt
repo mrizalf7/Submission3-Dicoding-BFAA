@@ -56,7 +56,7 @@ class DetailActivity : AppCompatActivity() {
         favoriteUserHelper.open()
 
 
-        val user = intent.getParcelableExtra<GithubUserData>(EXTRA_FAVORITE_USER) as GithubUserData
+        val user = intent.getParcelableExtra<GithubUserData>(EXTRA_USER) as GithubUserData
 //        val favoriteUser = intent.getParcelableExtra<FavoriteUser>(EXTRA_FAVORITE_USER) as FavoriteUser
 
 
