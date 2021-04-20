@@ -13,32 +13,35 @@ import com.example.fourthproject.activity.DetailActivity
 import com.example.fourthproject.databinding.ItemGithubFavoriteUserBinding
 
 import com.example.fourthproject.entity.FavoriteUser
+import com.example.fourthproject.entity.GithubUserData
 
 
 class FavoriteUserAdapter(private val activity: Activity):RecyclerView.Adapter<FavoriteUserAdapter.ListViewHolder>() {
 
-    private val listUserFavorite= ArrayList<FavoriteUser>()
+    private val listUserFavorite= ArrayList<GithubUserData>()
     private var onItemClickCallback: OnItemClickCallback? = null
 
     inner class ListViewHolder(private val binding: ItemGithubFavoriteUserBinding):RecyclerView.ViewHolder(binding.root) {
-        fun bind(userFavorite: FavoriteUser) {
+        fun bind(userFavorite: GithubUserData) {
             with(binding){
                 Glide.with(itemView.context)
                     .load(userFavorite.avatar)
                     .into(imgAvatarFavorite)
-                idGithubUserFavorite.text = userFavorite.username
+                idGithubUserFavorite.text = userFavorite.idGithub
 
-                itemView.setOnClickListener {
-                    CustomOnItemClickListener(
-                        adapterPosition,
-                        object : CustomOnItemClickListener.OnItemClickCallback {
-                    override fun onItemClicked(view: View, position: Int) {
-                        val intent = Intent(activity, DetailActivity::class.java)
-                        intent.putExtra(DetailActivity.EXTRA_FAVORITE_USER,position)
-                        activity.startActivity(intent)
-                    }
-                })
-                }
+//                itemView.setOnClickListener {
+//                    CustomOnItemClickListener(
+//                        adapterPosition,
+//                        object : CustomOnItemClickListener.OnItemClickCallback {
+//                    override fun onItemClicked(view: View, position: Int) {
+//                        val intent = Intent(activity, DetailActivity::class.java)
+//                        intent.putExtra(DetailActivity.EXTRA_USER,userFavorite)
+////                        intent.putExtra(DetailActivity.EXTRA_POSITION,position)
+//                        activity.startActivity(intent)
+//
+//                    }
+//                })
+//                }
             }
         }
     }
@@ -59,16 +62,16 @@ class FavoriteUserAdapter(private val activity: Activity):RecyclerView.Adapter<F
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(userFavorite: FavoriteUser)
+        fun onItemClicked(userFavorite: GithubUserData)
     }
 
-    fun setData(items: ArrayList<FavoriteUser>) {
+    fun setData(items: ArrayList<GithubUserData>) {
         listUserFavorite.clear()
         listUserFavorite.addAll(items)
         notifyDataSetChanged()
     }
 
-    var userFavoriteList = ArrayList<FavoriteUser>()
+    var userFavoriteList = ArrayList<GithubUserData>()
         set(userFavoriteList) {
             if (userFavoriteList.size > 0) {
                 this.userFavoriteList.clear()

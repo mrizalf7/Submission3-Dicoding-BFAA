@@ -36,6 +36,7 @@ class DetailActivity : AppCompatActivity() {
         )
         const val EXTRA_USER = "extra_user"
         const val EXTRA_FAVORITE_USER = "extra_favorite_user"
+//        const val EXTRA_POSITION = "extra_position"
     }
 
     private lateinit var binding: ActivityDetailBinding
@@ -55,8 +56,8 @@ class DetailActivity : AppCompatActivity() {
         favoriteUserHelper.open()
 
 
-        val user = intent.getParcelableExtra<GithubUserData>(EXTRA_USER) as GithubUserData
-        val favoriteUser = intent.getParcelableExtra<FavoriteUser>(EXTRA_FAVORITE_USER) as FavoriteUser
+        val user = intent.getParcelableExtra<GithubUserData>(EXTRA_FAVORITE_USER) as GithubUserData
+//        val favoriteUser = intent.getParcelableExtra<FavoriteUser>(EXTRA_FAVORITE_USER) as FavoriteUser
 
 
      val pagerAdapter = PagerAdapter(this)
@@ -69,15 +70,15 @@ class DetailActivity : AppCompatActivity() {
                 TAB_TITLES[position])
         }.attach()
 
-        val pagerAdapter2 = PagerAdapter(this)
-        pagerAdapter2.username = favoriteUser.username
-        val viewPager2: ViewPager2 = binding.viewPager
-        viewPager2.adapter = pagerAdapter2
-        val tabs2: TabLayout = binding.tabs
-        TabLayoutMediator(tabs2, viewPager2) { tab, position ->
-            tab.text = resources.getString(
-                TAB_TITLES[position])
-        }.attach()
+//        val pagerAdapter2 = PagerAdapter(this)
+//        pagerAdapter2.username = favoriteUser.username
+//        val viewPager2: ViewPager2 = binding.viewPager
+//        viewPager2.adapter = pagerAdapter2
+//        val tabs2: TabLayout = binding.tabs
+//        TabLayoutMediator(tabs2, viewPager2) { tab, position ->
+//            tab.text = resources.getString(
+//                TAB_TITLES[position])
+//        }.attach()
 
 
 
@@ -109,27 +110,27 @@ class DetailActivity : AppCompatActivity() {
         })
 
 
-        favoriteUser.username?.let { detailViewModel.setDetailUser(it) }
-        detailViewModel.getDetailFavoriteUser().observe(this, {
-            binding.apply {
-                it.username.let { it ->
-                    if (it != null) {
-                        detailViewModel.setDetailUser(it)
-                    }
-                }
-                Glide.with(this@DetailActivity)
-                    .load(it.avatar)
-                    .into(imgAvatarDetail)
-//                repositoryDetail.text = StringBuilder("Repository:").append(it.repository)
-//                followersDetail.text = StringBuilder("Followers:").append(it.followers)
-//                followingDetail.text = StringBuilder("Following:").append(it.following)
-//                nameDetail.text = it.name
-//                locationDetail.text = StringBuilder("Location:").append(it.location)
-//                companyDetail.text = StringBuilder("Company:").append(it.company)
-
-            }
-            showLoading(false)
-        })
+//        favoriteUser.username?.let { detailViewModel.setDetailUser(it) }
+//        detailViewModel.getDetailFavoriteUser().observe(this, {
+//            binding.apply {
+//                it.username.let { it ->
+//                    if (it != null) {
+//                        detailViewModel.setDetailUser(it)
+//                    }
+//                }
+//                Glide.with(this@DetailActivity)
+//                    .load(it.avatar)
+//                    .into(imgAvatarDetail)
+//////                repositoryDetail.text = StringBuilder("Repository:").append(it.repository)
+//////                followersDetail.text = StringBuilder("Followers:").append(it.followers)
+//////                followingDetail.text = StringBuilder("Following:").append(it.following)
+//////                nameDetail.text = it.name
+//////                locationDetail.text = StringBuilder("Location:").append(it.location)
+//////                companyDetail.text = StringBuilder("Company:").append(it.company)
+////
+//            }
+//            showLoading(false)
+//        })
 
 
 
@@ -151,7 +152,7 @@ class DetailActivity : AppCompatActivity() {
                 val favorite = MappingHelper.mapCursorToArrayList(cursor)
 
                 for (data in favorite){
-                    if (user.idGithub == data.username){
+                    if (user.idGithub == data.idGithub){
                         statusFavorite = true
                     }
                 }

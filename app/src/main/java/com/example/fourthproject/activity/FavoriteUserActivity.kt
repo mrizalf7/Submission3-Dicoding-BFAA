@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fourthproject.adapter.FavoriteUserAdapter
+import com.example.fourthproject.adapter.GithubRVAdapter
 import com.example.fourthproject.databinding.ActivityFavoriteUserBinding
 import com.example.fourthproject.db.FavoriteUserHelper
-import com.example.fourthproject.entity.FavoriteUser
+import com.example.fourthproject.entity.GithubUserData
 import com.example.fourthproject.helper.MappingHelper
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +21,7 @@ class FavoriteUserActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityFavoriteUserBinding
-    private lateinit var adapter : FavoriteUserAdapter
+    private lateinit var adapter : GithubRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +57,10 @@ class FavoriteUserActivity : AppCompatActivity() {
             }
             favoriteUserHelper.close()
         }
-     
+
     }
 
-    private fun showSelectedUser(favoriteUser: FavoriteUser) {
+    private fun showSelectedUser(favoriteUser: GithubUserData) {
         val moveIntent = Intent(this@FavoriteUserActivity, DetailActivity::class.java)
         moveIntent.putExtra(DetailActivity.EXTRA_FAVORITE_USER, favoriteUser)
         startActivity(moveIntent)
@@ -69,14 +69,14 @@ class FavoriteUserActivity : AppCompatActivity() {
 
     private fun showRecyclerList() {
         binding.rvFavoriteUsers.layoutManager = LinearLayoutManager(this)
-        adapter = FavoriteUserAdapter(this)
+        adapter = GithubRVAdapter()
         adapter.notifyDataSetChanged()
         binding.rvFavoriteUsers.adapter = adapter
         showLoading(false)
 
-        adapter.setOnItemClickCallback(object : FavoriteUserAdapter.OnItemClickCallback {
-            override fun onItemClicked(userFavorite: FavoriteUser) {
-                showSelectedUser(userFavorite)
+        adapter.setOnItemClickCallback(object : GithubRVAdapter.OnItemClickCallback {
+            override fun onItemClicked(githubUserData: GithubUserData) {
+                showSelectedUser(githubUserData)
             }
         })
     }

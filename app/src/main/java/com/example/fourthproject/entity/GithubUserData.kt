@@ -8,12 +8,13 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class GithubUserData(
 
-    @field:SerializedName("name")
-    var name: String? ="",
+    var id : Int = 0,
     @field:SerializedName("login")
     var idGithub:String? ="",
     @field:SerializedName("avatar_url")
     var avatar: String? ="",
+    @field:SerializedName("name")
+    var name: String? ="",
     @field:SerializedName("followers")
     var followers:String? ="",
     @field:SerializedName("following")
