@@ -85,4 +85,5 @@ class FollowingFragment : Fragment() {
             }
         })
     }
+
 }

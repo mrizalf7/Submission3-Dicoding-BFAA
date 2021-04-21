@@ -56,7 +56,6 @@ class FollowersFragment : Fragment() {
         adapter.notifyDataSetChanged()
         binding.rvFollowers.adapter = adapter
 
-
         adapter.setOnItemClickCallback(object : GithubRVAdapter.OnItemClickCallback {
             override fun onItemClicked(githubUserData: GithubUserData) {
                 showSelectedUser(githubUserData)
@@ -85,4 +84,6 @@ class FollowersFragment : Fragment() {
             }
         })
     }
+
+
 }
