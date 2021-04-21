@@ -1,5 +1,6 @@
 package com.example.fourthproject.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fourthproject.activity.DetailActivity
 import com.example.fourthproject.adapter.GithubRVAdapter
 import com.example.fourthproject.api.FollowingViewModel
 import com.example.fourthproject.databinding.FragmentFollowingBinding
+import com.example.fourthproject.entity.GithubUserData
 
 
 class FollowingFragment : Fragment() {
@@ -51,6 +54,19 @@ class FollowingFragment : Fragment() {
         adapter = GithubRVAdapter()
         adapter.notifyDataSetChanged()
         binding.rvFollowing.adapter = adapter
+
+
+        adapter.setOnItemClickCallback(object : GithubRVAdapter.OnItemClickCallback {
+            override fun onItemClicked(githubUserData: GithubUserData) {
+                showSelectedUser(githubUserData)
+            }
+        })
+    }
+
+    private fun showSelectedUser(userGithubUserData: GithubUserData) {
+        val moveIntent = Intent(activity, DetailActivity::class.java)
+        moveIntent.putExtra(DetailActivity.EXTRA_USER, userGithubUserData)
+        startActivity(moveIntent)
     }
 
     private fun setFollowing() {

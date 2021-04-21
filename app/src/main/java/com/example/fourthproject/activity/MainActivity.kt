@@ -18,7 +18,6 @@ import com.example.fourthproject.databinding.ActivityMainBinding
 import com.example.fourthproject.entity.GithubUserData
 
 
-
 class MainActivity : AppCompatActivity() {
 
 
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             MainViewModel::class.java)
 
         val actionbar = supportActionBar
-        actionbar?.title = "GithubUserAPP 3.0"
+        actionbar?.title = "GithubUser3.0"
         binding.rvUsers.setHasFixedSize(true)
         getDataUserApiInitial()
         showRecyclerList()
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     private fun showRecyclerList() {
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
         adapter = GithubRVAdapter()
-        adapter.notifyDataSetChanged()
+//        adapter.notifyDataSetChanged()
         binding.rvUsers.adapter = adapter
         showLoading(false)
 
@@ -74,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         inflater.inflate(R.menu.menu, menu)
 
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = menu.findItem(R.id.search).actionView as SearchView
+        val searchView = menu.findItem(R.id.search_button).actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.queryHint = resources.getString(R.string.search_hint)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -93,7 +92,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle item selection
         return when (item.itemId) {
             R.id.favorite_button -> {
 
@@ -102,18 +100,23 @@ class MainActivity : AppCompatActivity() {
                 true
             }
 
+            R.id.settings_button ->{
+                val moveIntent = Intent(this@MainActivity, NotifActivity::class.java)
+                startActivity(moveIntent)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    fun getDataUserFromApi(username: String) {
+    private fun getDataUserFromApi(username: String) {
         if(username.isEmpty()) return
         showLoading(true)
          mainViewModel.setGithubUser(username)
 
     }
 
-    fun getDataUserApiInitial(){
+    private fun getDataUserApiInitial(){
         showLoading(true)
         mainViewModel.setGithubUserInitial("A")
         showLoading(false)

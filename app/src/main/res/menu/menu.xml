@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/search_button"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
@@ -14,6 +14,11 @@
         android:icon="@drawable/ic_favorited"
         android:title="@string/search"
         app:showAsAction="collapseActionView|always"/>
+
+    <item
+        android:id="@+id/settings_button"
+        android:title="@string/settings"
+        app:showAsAction="never"/>
 
 
 </menu>

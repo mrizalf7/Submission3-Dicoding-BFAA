@@ -51,7 +51,7 @@ class FavoriteUserActivity : AppCompatActivity() {
             val favoriteUsers = deferredNotes.await()
             if (favoriteUsers.size > 0) {
                 adapter.setData(favoriteUsers)
-                adapter.notifyDataSetChanged()
+//                adapter.notifyDataSetChanged()
             } else {
                 showSnackbarMessage("Tidak ada data saat ini")
             }
@@ -70,7 +70,7 @@ class FavoriteUserActivity : AppCompatActivity() {
     private fun showRecyclerList() {
         binding.rvFavoriteUsers.layoutManager = LinearLayoutManager(this)
         adapter = GithubRVAdapter()
-        adapter.notifyDataSetChanged()
+//        adapter.notifyDataSetChanged()
         binding.rvFavoriteUsers.adapter = adapter
         showLoading(false)
 

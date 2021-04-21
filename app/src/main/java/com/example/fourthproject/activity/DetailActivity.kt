@@ -15,12 +15,10 @@ import com.bumptech.glide.Glide
 import com.example.fourthproject.R
 import com.example.fourthproject.databinding.ActivityDetailBinding
 import com.example.fourthproject.entity.GithubUserData
-
 import com.example.fourthproject.adapter.PagerAdapter
 import com.example.fourthproject.api.DetailViewModel
 import com.example.fourthproject.db.FavoriteUserContract
 import com.example.fourthproject.db.FavoriteUserHelper
-import com.example.fourthproject.entity.FavoriteUser
 import com.example.fourthproject.helper.MappingHelper
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -35,8 +33,6 @@ class DetailActivity : AppCompatActivity() {
             R.string.following
         )
         const val EXTRA_USER = "extra_user"
-        const val EXTRA_FAVORITE_USER = "extra_favorite_user"
-//        const val EXTRA_POSITION = "extra_position"
     }
 
     private lateinit var binding: ActivityDetailBinding
@@ -55,10 +51,7 @@ class DetailActivity : AppCompatActivity() {
         favoriteUserHelper = FavoriteUserHelper.getInstance(applicationContext)
         favoriteUserHelper.open()
 
-
         val user = intent.getParcelableExtra<GithubUserData>(EXTRA_USER) as GithubUserData
-//        val favoriteUser = intent.getParcelableExtra<FavoriteUser>(EXTRA_FAVORITE_USER) as FavoriteUser
-
 
      val pagerAdapter = PagerAdapter(this)
         pagerAdapter.username = user.idGithub
@@ -69,18 +62,6 @@ class DetailActivity : AppCompatActivity() {
             tab.text = resources.getString(
                 TAB_TITLES[position])
         }.attach()
-
-//        val pagerAdapter2 = PagerAdapter(this)
-//        pagerAdapter2.username = favoriteUser.username
-//        val viewPager2: ViewPager2 = binding.viewPager
-//        viewPager2.adapter = pagerAdapter2
-//        val tabs2: TabLayout = binding.tabs
-//        TabLayoutMediator(tabs2, viewPager2) { tab, position ->
-//            tab.text = resources.getString(
-//                TAB_TITLES[position])
-//        }.attach()
-
-
 
         supportActionBar?.elevation = 0f
         supportActionBar?.title = user.idGithub
@@ -109,42 +90,8 @@ class DetailActivity : AppCompatActivity() {
             showLoading(false)
         })
 
-
-//        favoriteUser.username?.let { detailViewModel.setDetailUser(it) }
-//        detailViewModel.getDetailFavoriteUser().observe(this, {
-//            binding.apply {
-//                it.username.let { it ->
-//                    if (it != null) {
-//                        detailViewModel.setDetailUser(it)
-//                    }
-//                }
-//                Glide.with(this@DetailActivity)
-//                    .load(it.avatar)
-//                    .into(imgAvatarDetail)
-//////                repositoryDetail.text = StringBuilder("Repository:").append(it.repository)
-//////                followersDetail.text = StringBuilder("Followers:").append(it.followers)
-//////                followingDetail.text = StringBuilder("Following:").append(it.following)
-//////                nameDetail.text = it.name
-//////                locationDetail.text = StringBuilder("Location:").append(it.location)
-//////                companyDetail.text = StringBuilder("Company:").append(it.company)
-////
-//            }
-//            showLoading(false)
-//        })
-
-
-
-//        setDetailFavoriteUser(favoriteUser)
         checkUserFavorite(user)
     }
-
-//        private fun setDetailFavoriteUser(user:FavoriteUser){
-//
-//            binding.nameDetail.text = user.username
-//            Glide.with(this@DetailActivity)
-//                .load(user.avatar).into(binding.imgAvatarDetail)
-//        }
-
             private fun checkUserFavorite(user: GithubUserData){
 
 

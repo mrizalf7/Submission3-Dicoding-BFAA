@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.fourthproject.entity.FavoriteUser
 import com.example.fourthproject.entity.GithubUserData
 import com.google.gson.Gson
 import com.loopj.android.http.AsyncHttpClient
@@ -19,7 +18,7 @@ class DetailViewModel : ViewModel() {
     }
 
     val detailUser = MutableLiveData<GithubUserData>()
-    val detailFavoriteUser = MutableLiveData<FavoriteUser>()
+
 
     fun setDetailUser(users: String) {
         val url = "https://api.github.com/users/$users"
@@ -38,9 +37,8 @@ class DetailViewModel : ViewModel() {
                     val responObjects = JSONObject(result)
                     val gson = Gson()
                     val user = gson.fromJson(responObjects.toString(), GithubUserData::class.java)
-                    val favoriteUser = gson.fromJson(responObjects.toString(), FavoriteUser::class.java)
                     detailUser.postValue(user)
-                    detailFavoriteUser.postValue(favoriteUser)
+
 
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -63,8 +61,6 @@ class DetailViewModel : ViewModel() {
         return detailUser
     }
 
-    fun getDetailFavoriteUser(): LiveData<FavoriteUser> {
-        return detailFavoriteUser
-    }
+
 
 }
