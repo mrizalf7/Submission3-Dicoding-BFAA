@@ -115,12 +115,6 @@ class DetailActivity : AppCompatActivity() {
 
         val cursor = contentResolver.query(uriWithId, null, null, null, null)
 
-//        if (cursor != null) {
-//            if (cursor.moveToNext()) {
-//                statusFavorite = true
-//                setStatusFavorite(true)
-//            }
-//        }
         val favorite = MappingHelper.mapCursorToArrayList(cursor)
 
         for (data in favorite) {

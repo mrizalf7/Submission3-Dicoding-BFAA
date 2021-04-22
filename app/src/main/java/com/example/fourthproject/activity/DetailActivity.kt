@@ -114,15 +114,7 @@ class DetailActivity : AppCompatActivity() {
         uriWithId = Uri.parse(CONTENT_URI.toString() + "/" + user.id)
 
         val cursor = contentResolver.query(uriWithId, null, null, null, null)
-
-//        if (cursor != null) {
-//            if (cursor.moveToNext()) {
-//                statusFavorite = true
-//                setStatusFavorite(true)
-//            }
-//        }
         val favorite = MappingHelper.mapCursorToArrayList(cursor)
-
         for (data in favorite) {
             if (user.idGithub == data.idGithub) {
                     statusFavorite = true
@@ -140,7 +132,6 @@ class DetailActivity : AppCompatActivity() {
                 values.put(FavoriteUserContract.Columns.avatar, user.avatar)
                 values.put(FavoriteUserContract.Columns._id,user.id)
                 contentResolver.insert(CONTENT_URI, values)
-//                favHelper.insert(values)
 
                 statusFavorite = !statusFavorite
                 setStatusFavorite(statusFavorite)
@@ -154,8 +145,7 @@ class DetailActivity : AppCompatActivity() {
 
 
                 contentResolver.delete(uriWithId, null, null)
-//                favHelper.deleteByUsername(user.idGithub.toString())
-//                favHelper.deleteById(user.id.toString())
+
 
                 Toast.makeText(
                     this,

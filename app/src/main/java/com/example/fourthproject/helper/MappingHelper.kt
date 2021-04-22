@@ -20,17 +20,4 @@ object MappingHelper {
         }
         return favoriteListUsers
     }
-
-    fun mapCursorToObject(notesCursor: Cursor?): GithubUserData {
-        var user =GithubUserData()
-        notesCursor?.apply {
-            moveToFirst()
-            val id = getInt(getColumnIndexOrThrow(FavoriteUserContract.Columns._id))
-            val username = getString(getColumnIndexOrThrow(FavoriteUserContract.Columns._username))
-            val avatar = getString(getColumnIndexOrThrow(FavoriteUserContract.Columns.avatar))
-
-            user = GithubUserData(id, username, avatar,)
-        }
-        return user
-    }
 }
