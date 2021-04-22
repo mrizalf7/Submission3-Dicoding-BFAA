@@ -3,6 +3,7 @@ package com.example.fourthproject.helper
 import android.database.Cursor
 import com.example.fourthproject.db.FavoriteUserContract
 import com.example.fourthproject.entity.GithubUserData
+import java.util.*
 
 object MappingHelper {
 

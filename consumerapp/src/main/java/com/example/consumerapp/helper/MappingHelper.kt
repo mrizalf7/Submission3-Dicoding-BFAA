@@ -1,8 +1,9 @@
-package com.example.fourthproject.helper
+package com.example.consumerapp.helper
 
 import android.database.Cursor
-import com.example.fourthproject.db.FavoriteUserContract
-import com.example.fourthproject.entity.GithubUserData
+import com.example.consumerapp.db.FavoriteUserContract
+import com.example.consumerapp.entity.GithubUserData
+import java.util.*
 
 object MappingHelper {
 

@@ -1,4 +1,4 @@
-package com.example.fourthproject.fragment
+package com.example.consumerapp.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fourthproject.activity.DetailActivity
-import com.example.fourthproject.adapter.GithubRVAdapter
-import com.example.fourthproject.api.FollowingViewModel
-import com.example.fourthproject.databinding.FragmentFollowingBinding
-import com.example.fourthproject.entity.GithubUserData
+import com.example.consumerapp.activity.DetailActivity
+import com.example.consumerapp.adapter.GithubRVAdapter
+import com.example.consumerapp.api.FollowingViewModel
+import com.example.consumerapp.databinding.FragmentFollowingBinding
+import com.example.consumerapp.entity.GithubUserData
 
 
 class FollowingFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.fourthproject.activity
+package com.example.consumerapp.activity
 
 import android.content.ContentValues
 import android.content.Intent
@@ -13,14 +13,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.example.fourthproject.R
-import com.example.fourthproject.databinding.ActivityDetailBinding
-import com.example.fourthproject.entity.GithubUserData
-import com.example.fourthproject.adapter.PagerAdapter
-import com.example.fourthproject.api.DetailViewModel
-import com.example.fourthproject.db.FavoriteUserContract
-import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion.CONTENT_URI
-import com.example.fourthproject.helper.MappingHelper
+import com.example.consumerapp.R
+import com.example.consumerapp.databinding.ActivityDetailBinding
+import com.example.consumerapp.entity.GithubUserData
+import com.example.consumerapp.adapter.PagerAdapter
+import com.example.consumerapp.api.DetailViewModel
+import com.example.consumerapp.db.FavoriteUserContract
+import com.example.consumerapp.db.FavoriteUserContract.Columns.Companion.CONTENT_URI
+import com.example.consumerapp.helper.MappingHelper
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -140,7 +140,7 @@ class DetailActivity : AppCompatActivity() {
                 values.put(FavoriteUserContract.Columns.avatar, user.avatar)
                 values.put(FavoriteUserContract.Columns._id,user.id)
                 contentResolver.insert(CONTENT_URI, values)
-//                favHelper.insert(values)
+
 
                 statusFavorite = !statusFavorite
                 setStatusFavorite(statusFavorite)
@@ -154,8 +154,7 @@ class DetailActivity : AppCompatActivity() {
 
 
                 contentResolver.delete(uriWithId, null, null)
-//                favHelper.deleteByUsername(user.idGithub.toString())
-//                favHelper.deleteById(user.id.toString())
+
 
                 Toast.makeText(
                     this,
@@ -186,27 +185,6 @@ class DetailActivity : AppCompatActivity() {
             binding.fabButton.setImageResource(R.drawable.ic_favorite)
         }
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu, menu)
-        return true
-
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        return when (item.itemId) {
-            R.id.favorite_button -> {
-
-                val moveIntent = Intent(this, FavoriteUserActivity::class.java)
-                startActivity(moveIntent)
-                true
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

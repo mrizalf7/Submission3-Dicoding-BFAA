@@ -1,4 +1,4 @@
-package com.example.fourthproject.activity
+package com.example.consumerapp.activity
 
 import android.app.SearchManager
 import android.content.Context
@@ -11,11 +11,11 @@ import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fourthproject.R
-import com.example.fourthproject.adapter.GithubRVAdapter
-import com.example.fourthproject.api.MainViewModel
-import com.example.fourthproject.databinding.ActivityMainBinding
-import com.example.fourthproject.entity.GithubUserData
+import com.example.consumerapp.R
+import com.example.consumerapp.adapter.GithubRVAdapter
+import com.example.consumerapp.api.MainViewModel
+import com.example.consumerapp.databinding.ActivityMainBinding
+import com.example.consumerapp.entity.GithubUserData
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         getDataUserApiInitial()
         showRecyclerList()
         val actionbar = supportActionBar
-        actionbar?.title = "GithubUser3.0"
+        actionbar?.title = "Consumer Github 3.0"
     }
 
 

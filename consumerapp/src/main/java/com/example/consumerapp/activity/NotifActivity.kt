@@ -1,13 +1,13 @@
-package com.example.fourthproject.activity
+package com.example.consumerapp.activity
 
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import com.example.fourthproject.R
-import com.example.fourthproject.alarm.AlarmReceiver
-import com.example.fourthproject.databinding.ActivityNotifBinding
+import com.example.consumerapp.R
+import com.example.consumerapp.alarm.AlarmReceiver
+import com.example.consumerapp.databinding.ActivityNotifBinding
 
 class NotifActivity : AppCompatActivity() {
 

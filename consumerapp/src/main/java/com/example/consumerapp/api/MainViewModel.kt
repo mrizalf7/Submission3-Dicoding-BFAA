@@ -1,10 +1,10 @@
-package com.example.fourthproject.api
+package com.example.consumerapp.api
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.fourthproject.entity.GithubUserData
+import com.example.consumerapp.entity.GithubUserData
 import com.google.gson.Gson
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler

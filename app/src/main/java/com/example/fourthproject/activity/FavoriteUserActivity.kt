@@ -2,7 +2,6 @@ package com.example.fourthproject.activity
 
 import android.content.Intent
 import android.database.ContentObserver
-import android.media.tv.TvContract
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fourthproject.adapter.GithubRVAdapter
 import com.example.fourthproject.databinding.ActivityFavoriteUserBinding
 import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion.CONTENT_URI
-import com.example.fourthproject.db.FavoriteUserHelper
 import com.example.fourthproject.entity.GithubUserData
 import com.example.fourthproject.helper.MappingHelper
 import com.google.android.material.snackbar.Snackbar

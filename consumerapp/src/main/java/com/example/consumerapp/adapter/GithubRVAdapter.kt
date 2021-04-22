@@ -1,11 +1,11 @@
-package com.example.fourthproject.adapter
+package com.example.consumerapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.fourthproject.entity.GithubUserData
-import com.example.fourthproject.databinding.ItemGithubUserBinding
+import com.example.consumerapp.entity.GithubUserData
+import com.example.consumerapp.databinding.ItemGithubUserBinding
 
 class GithubRVAdapter:RecyclerView.Adapter<GithubRVAdapter.ListViewHolder>(){
 

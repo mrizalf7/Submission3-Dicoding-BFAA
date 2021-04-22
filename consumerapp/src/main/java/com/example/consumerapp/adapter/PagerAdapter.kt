@@ -1,10 +1,10 @@
-package com.example.fourthproject.adapter
+package com.example.consumerapp.adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.fourthproject.fragment.FollowersFragment
-import com.example.fourthproject.fragment.FollowingFragment
+import com.example.consumerapp.fragment.FollowersFragment
+import com.example.consumerapp.fragment.FollowingFragment
 
 class PagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
     var username:String? =""

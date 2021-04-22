@@ -1,15 +1,18 @@
-package com.example.fourthproject.activity
+package com.example.consumerapp.activity
 
 import android.content.Intent
+import android.database.ContentObserver
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.HandlerThread
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fourthproject.adapter.GithubRVAdapter
-import com.example.fourthproject.databinding.ActivityFavoriteUserBinding
-import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion.CONTENT_URI
-import com.example.fourthproject.entity.GithubUserData
-import com.example.fourthproject.helper.MappingHelper
+import com.example.consumerapp.adapter.GithubRVAdapter
+import com.example.consumerapp.databinding.ActivityFavoriteUserBinding
+import com.example.consumerapp.db.FavoriteUserContract.Columns.Companion.CONTENT_URI
+import com.example.consumerapp.entity.GithubUserData
+import com.example.consumerapp.helper.MappingHelper
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -29,12 +32,28 @@ class FavoriteUserActivity : AppCompatActivity() {
         binding = ActivityFavoriteUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
         showRecyclerList()
-        loadFavoriteUserAsync()
+        dataObserver()
         supportActionBar?.elevation = 0f
         supportActionBar?.title = "Favorite Users"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
+
+    private fun dataObserver(){
+
+        val handlerThread = HandlerThread("DataObserver")
+        handlerThread.start()
+        val handler = Handler(handlerThread.looper)
+
+        val myObserver = object : ContentObserver(handler) {
+            override fun onChange(self: Boolean) {
+                loadFavoriteUserAsync()
+            }
+        }
+
+        contentResolver.registerContentObserver(CONTENT_URI, true, myObserver)
+    }
+
         private fun loadFavoriteUserAsync() {
             GlobalScope.launch(Dispatchers.Main) {
                 binding.progressBar.visibility = View.VISIBLE
@@ -51,7 +70,7 @@ class FavoriteUserActivity : AppCompatActivity() {
                     adapter.setData(favoriteUsers)
 
                 } else {
-                    showSnackbarMessage("Tidak ada data saat ini")
+                    showSnackbarMessage("Tidak ada user favorit saat ini")
                 }
             }
 
@@ -96,6 +115,6 @@ class FavoriteUserActivity : AppCompatActivity() {
 
         override fun onResume() {
             super.onResume()
-            loadFavoriteUserAsync()
+           loadFavoriteUserAsync()
         }
     }

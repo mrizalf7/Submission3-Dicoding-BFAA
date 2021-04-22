@@ -1,4 +1,4 @@
-package com.example.fourthproject.entity
+package com.example.consumerapp.entity
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
