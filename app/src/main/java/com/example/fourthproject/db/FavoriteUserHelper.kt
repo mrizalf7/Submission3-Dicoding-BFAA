@@ -62,12 +62,27 @@ class FavoriteUserHelper(context: Context) {
         )
     }
 
+    fun queryById(id: String): Cursor {
+        return database.query(
+            DATABASE_TABLE,
+            null,
+            "$_id = ?",
+            arrayOf(id),
+            null,
+            null,
+            null,
+            null
+        )
+    }
     fun insert(values: ContentValues?): Long {
         return database.insert(DATABASE_TABLE, null, values)
     }
 
     fun deleteByUsername(username: String): Int {
         return database.delete(DATABASE_TABLE, "$_username = '$username'", null)
+    }
+    fun deleteById(id: String): Int {
+        return database.delete(DATABASE_TABLE, "$_id = '$id'", null)
     }
 
     fun update(id: String, values: ContentValues?): Int {

@@ -31,14 +31,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
-            MainViewModel::class.java)
-
-        val actionbar = supportActionBar
-        actionbar?.title = "GithubUser3.0"
-        binding.rvUsers.setHasFixedSize(true)
+        dataInitial()
         getDataUserApiInitial()
         showRecyclerList()
+        val actionbar = supportActionBar
+        actionbar?.title = "GithubUser 3.0"
+    }
+
+
+    private fun dataInitial(){
+        mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+            MainViewModel::class.java)
 
         mainViewModel.getUser().observe(this, { userItems ->
             if (userItems != null) {
@@ -46,12 +49,12 @@ class MainActivity : AppCompatActivity() {
                 showLoading(false)
             }
         })
-
     }
+
     private fun showRecyclerList() {
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
         adapter = GithubRVAdapter()
-//        adapter.notifyDataSetChanged()
+        binding.rvUsers.setHasFixedSize(true)
         binding.rvUsers.adapter = adapter
         showLoading(false)
 
@@ -62,9 +65,9 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun showSelectedUser(userGithubUserData: GithubUserData) {
+    private fun showSelectedUser(favoriteUser: GithubUserData) {
         val moveIntent = Intent(this@MainActivity, DetailActivity::class.java)
-        moveIntent.putExtra(DetailActivity.EXTRA_USER, userGithubUserData)
+        moveIntent.putExtra(DetailActivity.EXTRA_USER, favoriteUser)
         startActivity(moveIntent)
     }
 
@@ -108,6 +111,7 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 
     private fun getDataUserFromApi(username: String) {
         if(username.isEmpty()) return

@@ -12,13 +12,14 @@
         android:roundIcon="@mipmap/github_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FourthProject">
+
         <provider
             android:name=".provider.FavoriteUserProvider"
             android:authorities="com.example.fourthproject"
             android:enabled="true"
             android:exported="true"
-            android:readPermission="com.example.example.fourthproject.READ_DATABASE"
-            android:writePermission="com.example.example.fourthproject.WRITE_DATABASE">
+            android:readPermission="com.example.fourthproject.READ_DATABASE"
+            android:writePermission="com.example.fourthproject.WRITE_DATABASE">
 
         </provider>
 
@@ -39,8 +40,7 @@
         </activity>
         <activity
             android:name=".activity.DetailActivity"
-            android:exported="true"
-            android:parentActivityName=".activity.MainActivity" />
+            android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true" />

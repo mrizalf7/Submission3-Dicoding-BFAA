@@ -21,6 +21,7 @@ class FavoriteUserProvider : ContentProvider() {
 
         init {
             sUriMatcher.addURI(AUTHORITY, table_name, FAV)
+
             sUriMatcher.addURI(
                 AUTHORITY,
                 "$table_name/#",
@@ -44,7 +45,7 @@ class FavoriteUserProvider : ContentProvider() {
     ): Cursor? {
         return when (sUriMatcher.match(uri)) {
             FAV -> favHelper.queryAll() // get all data
-            FAV_ID -> favHelper.queryByUsername(uri.lastPathSegment.toString()) // get data by id
+            FAV_ID -> favHelper.queryById(uri.lastPathSegment.toString()) // get data by id
             else -> null
         }
     }
@@ -83,7 +84,7 @@ class FavoriteUserProvider : ContentProvider() {
 
     override fun delete(uri: Uri, s: String?, strings: Array<String>?): Int {
         val deleted: Int = when (FAV_ID) {
-            sUriMatcher.match(uri) -> favHelper.deleteByUsername(uri.lastPathSegment.toString())
+            sUriMatcher.match(uri) -> favHelper.deleteById(uri.lastPathSegment.toString())
             else -> 0
         }
 
