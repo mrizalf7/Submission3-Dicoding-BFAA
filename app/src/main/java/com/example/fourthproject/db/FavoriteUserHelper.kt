@@ -5,8 +5,8 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion._id
-import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion._username
-import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion.table_name
+import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion.username
+import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion.tableName
 import java.sql.SQLException
 
 class FavoriteUserHelper(context: Context) {
@@ -15,7 +15,7 @@ class FavoriteUserHelper(context: Context) {
     private lateinit var database: SQLiteDatabase
 
     companion object {
-        private const val DATABASE_TABLE = table_name
+        private const val DATABASE_TABLE = tableName
         private var INSTANCE: FavoriteUserHelper? = null
         fun getInstance(context: Context): FavoriteUserHelper =
             INSTANCE ?: synchronized(this) {
@@ -29,12 +29,6 @@ class FavoriteUserHelper(context: Context) {
         database = databaseHelper.writableDatabase
     }
 
-    fun close() {
-        databaseHelper.close()
-
-        if (database.isOpen)
-            database.close()
-    }
 
     fun queryAll(): Cursor {
         return database.query(
@@ -53,7 +47,7 @@ class FavoriteUserHelper(context: Context) {
         return database.query(
             DATABASE_TABLE,
             null,
-            "$_username = ?",
+            "$username = ?",
             arrayOf(username),
             null,
             null,
@@ -79,13 +73,13 @@ class FavoriteUserHelper(context: Context) {
     }
 
     fun deleteByUsername(username: String): Int {
-        return database.delete(DATABASE_TABLE, "$_username = '$username'", null)
+        return database.delete(DATABASE_TABLE, "$username = '$username'", null)
     }
     fun deleteById(id: String): Int {
         return database.delete(DATABASE_TABLE, "$_id = '$id'", null)
     }
 
     fun update(id: String, values: ContentValues?): Int {
-        return database.update(DATABASE_TABLE, values, "$_username = ?", arrayOf(id))
+        return database.update(DATABASE_TABLE, values, "$username = ?", arrayOf(id))
     }
 }

@@ -8,7 +8,7 @@ import android.database.Cursor
 import android.net.Uri
 import com.example.fourthproject.db.FavoriteUserContract.AUTHORITY
 import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion.CONTENT_URI
-import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion.table_name
+import com.example.fourthproject.db.FavoriteUserContract.Columns.Companion.tableName
 import com.example.fourthproject.db.FavoriteUserHelper
 
 class FavoriteUserProvider : ContentProvider() {
@@ -20,11 +20,11 @@ class FavoriteUserProvider : ContentProvider() {
         private val sUriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
         init {
-            sUriMatcher.addURI(AUTHORITY, table_name, FAV)
+            sUriMatcher.addURI(AUTHORITY, tableName, FAV)
 
             sUriMatcher.addURI(
                 AUTHORITY,
-                "$table_name/#",
+                "$tableName/#",
                 FAV_ID
             )
         }

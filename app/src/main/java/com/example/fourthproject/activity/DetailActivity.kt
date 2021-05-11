@@ -27,15 +27,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailActivity : AppCompatActivity() {
 
-    companion object {
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.followers,
-            R.string.following
-        )
-        const val EXTRA_USER = "extra_user"
-    }
-
     private lateinit var binding: ActivityDetailBinding
     private lateinit var detailViewModel: DetailViewModel
     private var statusFavorite = false
@@ -43,21 +34,19 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var user:GithubUserData
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         dataInitial()
-        checkFavoriteUser(user)
-        crdFavoriteUser(user)
-        fragmentSetter(user)
-        apiSetterGetter(user)
+        checkFavoriteUser()
+        crdFavoriteUser()
+        fragmentSetter()
+        apiSetterGetter()
+
         supportActionBar?.elevation = 0f
         supportActionBar?.title = user.idGithub
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
 
     }
 
@@ -69,7 +58,10 @@ class DetailActivity : AppCompatActivity() {
 
 
     }
-    private fun fragmentSetter(user:GithubUserData){
+    private fun fragmentSetter(){
+
+
+
         val pagerAdapter = PagerAdapter(this)
         pagerAdapter.username = user.idGithub
         val viewPager: ViewPager2 = binding.viewPager
@@ -80,15 +72,20 @@ class DetailActivity : AppCompatActivity() {
                 TAB_TITLES[position]
             )
         }.attach()
+
+
     }
 
 
-    private fun apiSetterGetter(user:GithubUserData){
+    private fun apiSetterGetter(){
+
+
+        showLoading(true)
 
         user.idGithub?.let { detailViewModel.setDetailUser(it) }
         detailViewModel.getDetailUser().observe(this, {
             binding.apply {
-                it.name.let { it ->
+                it.name.let {
                     if (it != null) {
                         detailViewModel.setDetailUser(it)
                     }
@@ -106,9 +103,10 @@ class DetailActivity : AppCompatActivity() {
             }
             showLoading(false)
         })
+
     }
 
-    private fun checkFavoriteUser(user: GithubUserData) {
+    private fun checkFavoriteUser() {
 
         setStatusFavorite(statusFavorite)
         uriWithId = Uri.parse(CONTENT_URI.toString() + "/" + user.id)
@@ -123,12 +121,12 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun crdFavoriteUser(user: GithubUserData) {
+    private fun crdFavoriteUser() {
         binding.fabButton.setOnClickListener {
             if (!statusFavorite) {
 
                 val values = ContentValues()
-                values.put(FavoriteUserContract.Columns._username, user.idGithub)
+                values.put(FavoriteUserContract.Columns.username, user.idGithub)
                 values.put(FavoriteUserContract.Columns.avatar, user.avatar)
                 values.put(FavoriteUserContract.Columns._id,user.id)
                 contentResolver.insert(CONTENT_URI, values)
@@ -161,13 +159,6 @@ class DetailActivity : AppCompatActivity() {
     }
 
 
-    private fun showLoading(state: Boolean) {
-        if (state) {
-            binding.progressBar.visibility = View.VISIBLE
-        } else {
-            binding.progressBar.visibility = View.GONE
-        }
-    }
 
     private fun setStatusFavorite(statusFavorite: Boolean) {
         if (statusFavorite) {
@@ -178,9 +169,26 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
+    }
+
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+    companion object {
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.followers,
+            R.string.following
+        )
+        const val EXTRA_USER = "extra_user"
     }
 
 }

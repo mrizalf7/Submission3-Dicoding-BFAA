@@ -13,7 +13,7 @@ object MappingHelper {
         notesCursor?.apply {
             while (moveToNext()) {
                 val id = getInt(getColumnIndexOrThrow(FavoriteUserContract.Columns._id))
-                val username = getString(getColumnIndexOrThrow(FavoriteUserContract.Columns._username))
+                val username = getString(getColumnIndexOrThrow(FavoriteUserContract.Columns.username))
                 val avatar = getString(getColumnIndexOrThrow(FavoriteUserContract.Columns.avatar))
                 favoriteListUsers.add(GithubUserData(id, username, avatar))
             }

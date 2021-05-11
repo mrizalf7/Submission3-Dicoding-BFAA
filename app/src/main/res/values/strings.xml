@@ -8,6 +8,8 @@
     <string name="following"> Following</string>
     <string name="settings">Settings</string>
     <string name="message">GithubUser 3.0 is waiting for you!!</string>
+    <string name="reminder_settings">Reminder Settings</string>
+    <string name="github_logo">Github Logo</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

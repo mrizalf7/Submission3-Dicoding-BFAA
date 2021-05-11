@@ -14,9 +14,11 @@ class PagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity)
 
     override fun createFragment(position: Int): Fragment {
         var fragment: Fragment? = null
-        when (position) {
-            0 -> fragment = FollowersFragment.newInstance(username)
-            1 -> fragment = FollowingFragment.newInstance(username)
+         if (position == 0) {
+             fragment = FollowersFragment.newInstance(username)
+         }
+         else if (position == 1){
+             fragment = FollowingFragment.newInstance(username)
         }
         return fragment as Fragment
     }

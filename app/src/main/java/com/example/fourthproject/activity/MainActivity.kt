@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -66,14 +65,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSelectedUser(favoriteUser: GithubUserData) {
-        val moveIntent = Intent(this@MainActivity, DetailActivity::class.java)
-        moveIntent.putExtra(DetailActivity.EXTRA_USER, favoriteUser)
+        val moveIntent = Intent(this@MainActivity, DetailActivity::class.java).apply {
+            putExtra(DetailActivity.EXTRA_USER, favoriteUser)
+        }
         startActivity(moveIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu, menu)
+
+        menuInflater.inflate(R.menu.menu, menu)
 
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu.findItem(R.id.search_button).actionView as SearchView
