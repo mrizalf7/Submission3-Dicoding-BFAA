@@ -76,3 +76,23 @@ Menggunakan Content Provider sebagai mekanisme untuk mengakses data dari satu ap
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss7.png" width="250">
 
+**Liked profile:**
+
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss8.png" width="250">
+
+**Liked profile:**
+
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss9.png" width="250">
+
+**Liked profile:**
+
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss10.png" width="250">
+
+**Liked profile:**
+
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss11.png" width="250">
+
+**Liked profile:**
+
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss12.png" width="250">
+
