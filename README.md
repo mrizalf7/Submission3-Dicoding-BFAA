@@ -48,31 +48,31 @@ Menggunakan Content Provider sebagai mekanisme untuk mengakses data dari satu ap
 
 ## 📸 Screenshots
 
-**Movies:**
+**Home:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss1.png" width="250">
 
-**TvShows:** 
+**Search:** 
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss2.png" width="250">
 
-**Movie Detail:**
+**Profile Followers:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss3.png" width="250">
 
-**Tv Show Detail:**
+**Profile Following:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss4.png" width="250">
 
-**Liked movies:**
+**Profile Following(1):**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss5.png" width="250">
 
-**Liked tv show:**
+**Liking a profile:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss6.png" width="250">
 
-**Unliking a movie:**
+**Liked profile:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss7.png" width="250">
 
