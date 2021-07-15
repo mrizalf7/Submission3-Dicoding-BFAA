@@ -10,9 +10,10 @@ Fitur yang harus ada pada aplikasi :
 
 1. **Favorite User**
   Syarat:
-   Aplikasi harus bisa menambah dan menghapus user dari daftar favorite.
-   Aplikasi harus mempunyai halaman yang menampilkan daftar favorite.
-   Menampilkan halaman detail dari daftar favorite.
+  
+   - Aplikasi harus bisa menambah dan menghapus user dari daftar favorite.
+   - Aplikasi harus mempunyai halaman yang menampilkan daftar favorite.
+   - Menampilkan halaman detail dari daftar favorite.
 
 2. **Reminder**
    Syarat:
