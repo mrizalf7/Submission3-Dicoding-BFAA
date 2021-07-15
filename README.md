@@ -1,34 +1,12 @@
-# Dicoding - Belajar Android Jetpack Pro
+# Dicoding - Belajar Fundamental Aplikasi Android
  
 
 
-### Submission 1 Architecture Component
+### Submission Akhir : Aplikasi Github User
 
 #### Kriteria
 
 Fitur yang harus ada pada aplikasi :
-
-1. **Daftar film**  
-   Syarat :
-   - Terdapat 2 (dua) halaman yang menampilkan daftar film (**Movies** dan **Tv** **Show**) dengan jumlah **minimal 10 item**.
-   - Menerapkan ViewModel untuk menampung data **Movies** dan **Tv Show**.  
-
-2. **Detail film**  
-   Syarat :
-   - Menampilkan poster dan informasi film pada halaman detail film.
-   - Menerapkan ViewModel untuk menampung detail film.  
-
-3. **Unit Test**  
-   Syarat :
-   - Menerapkan unit test pada **semua fungsi** yang digunakan untuk mendapatkan data **Movie** dan **Tv Show**.  
-
-4. **Instrumentation Tests**  
-   Syarat :
-   
-   - Menerapkan instrumentation test untuk memastikan fitur-fitur yang ada berjalan dengan semestinya.
-
-   Kriteria Submission
-Fitur yang harus ditambahkan pada aplikasi:
 
 1. **Favorite User**
   Syarat:
@@ -37,14 +15,16 @@ Fitur yang harus ditambahkan pada aplikasi:
    Menampilkan halaman detail dari daftar favorite.
 
 2. **Reminder**
-Syarat:
-Terdapat pengaturan untuk menghidupkan dan mematikan reminder di halaman Setting.
-Daily reminder untuk kembali ke aplikasi yang berjalan pada pukul 09.00 AM.
+   Syarat:
+
+   - Terdapat pengaturan untuk menghidupkan dan mematikan reminder di halaman Setting.
+   - Daily reminder untuk kembali ke aplikasi yang berjalan pada pukul 09.00 AM.
 
 3. **Consumer App**
-Syarat:
-Membuat module baru yang menampilkan daftar user favorite.
-Menggunakan Content Provider sebagai mekanisme untuk mengakses data dari satu aplikasi ke aplikasi lain.
+   Syarat:
+
+   - Membuat module baru yang menampilkan daftar user favorite.
+   - Menggunakan Content Provider sebagai mekanisme untuk mengakses data dari satu aplikasi ke aplikasi lain.
 
 ## 📸 Screenshots
 
@@ -76,23 +56,23 @@ Menggunakan Content Provider sebagai mekanisme untuk mengakses data dari satu ap
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss7.png" width="250">
 
-**Liked profile:**
+**Settings:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss8.png" width="250">
 
-**Liked profile:**
+**Reminder Settings:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss9.png" width="250">
 
-**Liked profile:**
+**Turning on Reminder:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss10.png" width="250">
 
-**Liked profile:**
+**Initial notifications:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss11.png" width="250">
 
-**Liked profile:**
+**Github notification:**
 
 <img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss12.png" width="250">
 
