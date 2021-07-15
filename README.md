@@ -50,29 +50,29 @@ Menggunakan Content Provider sebagai mekanisme untuk mengakses data dari satu ap
 
 **Movies:**
 
-<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/main/screenshots/ss1.png" width="250">
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss1.png" width="250">
 
 **TvShows:** 
 
-<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/main/screenshots/ss2.png" width="250">
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss2.png" width="250">
 
 **Movie Detail:**
 
-<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/main/screenshots/ss3.png" width="250">
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss3.png" width="250">
 
 **Tv Show Detail:**
 
-<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/main/screenshots/ss4.png" width="250">
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss4.png" width="250">
 
 **Liked movies:**
 
-<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/main/screenshots/ss5.png" width="250">
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss5.png" width="250">
 
 **Liked tv show:**
 
-<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/main/screenshots/ss6.png" width="250">
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss6.png" width="250">
 
 **Unliking a movie:**
 
-<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/main/screenshots/ss7.png" width="250">
+<img src="https://raw.githubusercontent.com/mrizalf7/Submission3-Dicoding-BFAA/master/screenshots/ss7.png" width="250">
 
