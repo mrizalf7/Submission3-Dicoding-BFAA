@@ -83,7 +83,7 @@ class DetailActivity : AppCompatActivity() {
         showLoading(true)
 
         user.idGithub?.let { detailViewModel.setDetailUser(it) }
-        detailViewModel.getDetailUser().observe(this, {
+        detailViewModel.getDetailUser().observe(this) {
             binding.apply {
                 it.name.let {
                     if (it != null) {
@@ -102,7 +102,7 @@ class DetailActivity : AppCompatActivity() {
 
             }
             showLoading(false)
-        })
+        }
 
     }
 
